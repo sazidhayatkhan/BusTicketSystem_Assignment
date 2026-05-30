@@ -20,7 +20,9 @@ public class UserRepository : IUserRepository
 
     public User GetById(Guid userId)
     {
-        return _users.FirstOrDefault(u => u.UserId == userId);
+        return _users.FirstOrDefault(u => u.UserId == userId)
+           ?? throw new Exception("User not found");
+
     }
 
     public List<User> GetAll()
@@ -33,6 +35,7 @@ public class UserRepository : IUserRepository
         return _users.FirstOrDefault(
             u => u.MobileNumber.Equals(
                 mobileNumber,
-                StringComparison.OrdinalIgnoreCase));
+                StringComparison.OrdinalIgnoreCase))
+            ?? throw new Exception("User not found");
     }
 }
