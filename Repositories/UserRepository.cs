@@ -18,24 +18,21 @@ public class UserRepository : IUserRepository
         _users.Add(user);
     }
 
-    public User GetById(Guid userId)
-    {
-        return _users.FirstOrDefault(u => u.UserId == userId)
-           ?? throw new Exception("User not found");
-
-    }
-
     public List<User> GetAll()
     {
         return _users;
     }
 
-    public User GetByMobileNumber(string mobileNumber)
+    public User? GetById(Guid userId)
+    {
+        return _users.FirstOrDefault(u => u.UserId == userId);
+    }
+
+    public User? GetByMobileNumber(string mobileNumber)
     {
         return _users.FirstOrDefault(
             u => u.MobileNumber.Equals(
                 mobileNumber,
-                StringComparison.OrdinalIgnoreCase))
-            ?? throw new Exception("User not found");
+                StringComparison.OrdinalIgnoreCase));
     }
 }
