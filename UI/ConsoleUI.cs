@@ -22,7 +22,7 @@ public class ConsoleUI
 
         if (users.Count == 0)
         {
-            Console.WriteLine("No users found.");
+            Console.WriteLine("No users found 😭");
             return;
         }
 
