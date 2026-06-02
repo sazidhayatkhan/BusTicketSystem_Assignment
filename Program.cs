@@ -9,11 +9,8 @@ IBusRepository busRepository = new BusRepository();
 UserService userService = new UserService(userRepository);
 BusService busService = new BusService(busRepository);
 
-var ui = new ConsoleUI(
-    userRepository,
-    userService,
-    busRepository,
-    busService);
+var userUI = new UserUI(userRepository, userService);
+var busUI = new BusUI(busService);
 
 while (true)
 {
@@ -30,19 +27,19 @@ while (true)
     switch (input)
     {
         case "1":
-            ui.SeeAllUsers();
+            userUI.SeeAllUsers();
             break;
 
         case "2":
-            ui.AddUser();
+            userUI.AddUser();
             break;
 
         case "3":
-            ui.AddBus();
+            busUI.AddBus();
             break;
 
         case "4":
-            ui.ShowAllBuses();
+            busUI.ShowAllBuses();
             break;
 
         case "5":
