@@ -9,4 +9,6 @@ public interface IBusRepository
     List<Bus> GetAll();
 
     Bus? GetById(Guid busId);
+
+    Bus? GetByCoachNumber(string coachNumber);
 }

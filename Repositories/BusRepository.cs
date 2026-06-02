@@ -21,4 +21,12 @@ public class BusRepository : IBusRepository
     {
         return _buses.FirstOrDefault(b => b.BusId == busId);
     }
+
+    public Bus? GetByCoachNumber(string coachNumber)
+    {
+        return _buses.FirstOrDefault(
+            b => b.CoachNumber.Equals(
+                coachNumber,
+                StringComparison.OrdinalIgnoreCase));
+    }
 }

@@ -72,19 +72,27 @@ public class ConsoleUI
 
     public void AddBus()
     {
-        Console.Write("Enter Coach Number: ");
-        var coach = Console.ReadLine();
+        try
+        {
+            Console.Write("Enter Coach Number: ");
+            var coach = Console.ReadLine();
 
-        Console.Write("Enter Bus Type (1 = Economy, 2 = Business): ");
-        var typeInput = Console.ReadLine();
+            Console.Write("Enter Bus Type (1 = Economy, 2 = Business): ");
+            var typeInput = Console.ReadLine();
 
-        var type = typeInput == "2"
-            ? BusType.BUSINESS
-            : BusType.ECONOMY;
+            var type = typeInput == "2"
+                ? BusType.BUSINESS
+                : BusType.ECONOMY;
 
-        var bus = _busService.CreateBus(coach, type);
+            var bus = _busService.CreateBus(coach, type);
 
-        Console.WriteLine($"Bus created! ID: {bus.BusId}");
+            Console.WriteLine($"\nBus created successfully!");
+            Console.WriteLine($"Bus ID: {bus.BusId}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error: {ex.Message}");
+        }
     }
 
     public void ShowAllBuses()

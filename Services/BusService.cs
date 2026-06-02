@@ -18,6 +18,11 @@ public class BusService
         if (string.IsNullOrWhiteSpace(coachNumber))
             throw new Exception("Coach number is required");
 
+        var existingBus = _busRepository.GetByCoachNumber(coachNumber);
+
+        if (existingBus != null)
+            throw new Exception("Coach number already exists");
+
         var bus = new Bus(coachNumber, busType);
 
         _busRepository.Add(bus);
