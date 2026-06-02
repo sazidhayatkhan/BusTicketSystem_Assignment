@@ -14,6 +14,8 @@ public class Bus
 
     public List<Seat> Seats { get; private set; }
 
+    public List<Schedule> Schedules { get; private set; } = new();
+
     public Bus(string coachNumber, BusType busType)
     {
         BusId = Guid.NewGuid();
@@ -35,6 +37,17 @@ public class Bus
         }
 
         return seats;
+    }
+
+    public void AddSchedule(Schedule schedule)
+    {
+        if (schedule == null)
+            throw new Exception("Schedule cannot be null");
+
+        if (schedule.BusId != BusId)
+            throw new Exception("Schedule does not belong to this bus");
+
+        Schedules.Add(schedule);
     }
 
     public int GetAvailableSeats()
