@@ -54,6 +54,7 @@ The project follows a **layered architecture**:
 
 # Project Structure
 
+```
 BusTicketSystem/
 │
 ├── Models/
@@ -86,6 +87,7 @@ BusTicketSystem/
 │   ├── BusType.cs
 │
 └── Program.cs
+```
 
 
 ---
