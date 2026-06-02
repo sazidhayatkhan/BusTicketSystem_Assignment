@@ -20,10 +20,10 @@ This project demonstrates **OOP principles, SOLID design, layered architecture, 
 ## Bus Management
 - Add bus with:
   - Coach Number (must be unique)
-  - Bus Type (Economy / Business)
+  - Bus Type (ECONOMY / BUSINESS)
 - Auto seat generation:
   - Economy → 40 seats
-  - Business → 30 seats
+  - Business → 27 seats
 - View all buses
 - View available and booked seats
 
@@ -36,7 +36,6 @@ This project demonstrates **OOP principles, SOLID design, layered architecture, 
   - Arrival City
   - Departure Date & Time
   - Ticket Price
-- View all schedules
 - View schedules by bus
 - Each schedule is linked to a specific bus
 
@@ -91,7 +90,7 @@ BusTicketSystem/
 
 ---
 
-# ▶️ How to Run
+# How to Run
 
 ## 1. Clone the project
 ```bash
