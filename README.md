@@ -63,17 +63,22 @@ This project demonstrates **OOP principles, SOLID design, layered architecture, 
 
 ## Invoice Management
 
-- Automatically generated when a ticket is booked
-- Invoice includes:
-  - Invoice ID
-  - Ticket ID
-  - User information
-  - Schedule (route + time)
-  - Seat number
-  - Ticket price
-  - Generated date
-- View all invoices
-- Acts as the billing record for each booking
+- Automatically generated when a ticket is successfully booked  
+- Each invoice acts as a formal billing record for the transaction  
+
+Invoice includes:
+- Invoice ID (unique identifier)  
+- Ticket ID  
+- Passenger (User) information  
+- Trip details (Departure → Arrival, Departure Time)  
+- Seat number  
+- Ticket price / total amount  
+- Invoice generation date & time  
+
+Features:
+- View all generated invoices  
+- Provides complete booking and payment summary per ticket  
+- Serves as the official billing record for every reservation  
 
 ---
 
