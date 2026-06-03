@@ -34,4 +34,9 @@ public class BusService
     {
         return _busRepository.GetAll();
     }
+
+    public Bus? GetBusById(Guid busId)
+    {
+        return _busRepository.GetById(busId);
+    }
 }

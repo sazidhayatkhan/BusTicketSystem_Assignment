@@ -43,7 +43,7 @@ public class ScheduleUI
         }
     }
 
-    public void ShowBusSchedules()
+    public void ShowBusSchedulesById()
     {
         Console.Write("Enter Bus ID: ");
         var busId = Guid.Parse(Console.ReadLine());
@@ -66,5 +66,35 @@ public class ScheduleUI
         }
     }
 
-    
+    public void ShowAllSchedules()
+    {
+        var schedules = _scheduleService.GetAllSchedules();
+
+        if (schedules.Count == 0)
+        {
+            Console.WriteLine("No schedules found.");
+            return;
+        }
+
+        foreach (var schedule in schedules)
+        {
+            var bus = _busService.GetBusById(schedule.BusId);
+
+            Console.WriteLine("\n=========================");
+            Console.WriteLine($"Schedule ID: {schedule.ScheduleId}");
+
+            Console.WriteLine("\nBus Information");
+            Console.WriteLine($"Coach Number: {bus.CoachNumber}");
+            Console.WriteLine($"Bus Type: {bus.BusType}");
+            Console.WriteLine($"Total Seats: {bus.TotalSeats}");
+
+            Console.WriteLine("\nRoute Information");
+            Console.WriteLine($"From: {schedule.DepartureCity}");
+            Console.WriteLine($"To: {schedule.ArrivalCity}");
+            Console.WriteLine($"Departure: {schedule.DepartureTime}");
+            Console.WriteLine($"Ticket Price: {schedule.TicketPrice}");
+        }
+    }
+
+
 }

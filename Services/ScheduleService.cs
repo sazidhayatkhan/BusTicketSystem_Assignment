@@ -16,7 +16,7 @@ public class ScheduleService
         _busRepository = busRepository;
     }
 
-    
+
 
     public Schedule CreateSchedule(
         Guid busId,
@@ -48,5 +48,10 @@ public class ScheduleService
     public List<Schedule> GetSchedulesByBus(Guid busId)
     {
         return _scheduleRepository.GetByBusId(busId);
+    }
+
+    public List<Schedule> GetAllSchedules()
+    {
+        return _scheduleRepository.GetAll();
     }
 }

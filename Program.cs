@@ -3,6 +3,7 @@ using BusTicketSystem.Repositories;
 using BusTicketSystem.Services;
 using BusTicketSystem.UI;
 
+
 IUserRepository userRepository = new UserRepository();
 IBusRepository busRepository = new BusRepository();
 IScheduleRepository scheduleRepository = new ScheduleRepository();
@@ -27,8 +28,9 @@ while (true)
     Console.WriteLine("3. Add Bus");
     Console.WriteLine("4. View Buses");
     Console.WriteLine("5. Add Schedule");
-    Console.WriteLine("6. View Schedule of Bus");
-    Console.WriteLine("7. Exit");
+    Console.WriteLine("6. See All Schedules");
+    Console.WriteLine("7. View Schedule of Bus");
+    Console.WriteLine("8. Exit");
     Console.Write("Select option: ");
 
     var input = Console.ReadLine();
@@ -57,10 +59,14 @@ while (true)
             break;
 
         case "6":
-            scheduleUI.ShowBusSchedules();
+            scheduleUI.ShowAllSchedules();
             break;
 
         case "7":
+            scheduleUI.ShowBusSchedulesById();
+            break;
+
+        case "8":
             return;
 
         default:
