@@ -9,14 +9,18 @@ public class TicketService
     private readonly IScheduleRepository _scheduleRepository;
     private readonly ITicketRepository _ticketRepository;
 
+    private readonly InvoiceService _invoiceService;
+
     public TicketService(
         IUserRepository userRepository,
         IScheduleRepository scheduleRepository,
-        ITicketRepository ticketRepository)
+        ITicketRepository ticketRepository,
+        InvoiceService invoiceService)
     {
         _userRepository = userRepository;
         _scheduleRepository = scheduleRepository;
         _ticketRepository = ticketRepository;
+        _invoiceService = invoiceService;
     }
 
     public Ticket BookTicket(Guid userId, Guid scheduleId, int seatNumber)
@@ -47,6 +51,8 @@ public class TicketService
         schedule.AddTicket(ticket);
 
         user.AddTicket(ticket);
+
+        _invoiceService.GenerateInvoice(ticket);
 
         return ticket;
     }

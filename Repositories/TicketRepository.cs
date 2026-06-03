@@ -30,4 +30,10 @@ public class TicketRepository : ITicketRepository
             .Where(t => t.ScheduleId == scheduleId)
             .ToList();
     }
+
+    public Ticket GetById(Guid id)
+    {
+        return _tickets.FirstOrDefault(t => t.TicketId == id)
+            ?? throw new Exception("Ticket not found");
+    }
 }

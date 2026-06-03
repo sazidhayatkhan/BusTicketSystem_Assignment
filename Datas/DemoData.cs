@@ -9,7 +9,8 @@ public static class DemoData
         UserService userService,
         BusService busService,
         ScheduleService scheduleService,
-        TicketService ticketService)
+        TicketService ticketService,
+        InvoiceService invoiceService)
     {
         // Users
         var user1 = userService.RegisterUser(

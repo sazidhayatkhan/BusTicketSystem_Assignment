@@ -11,4 +11,6 @@ public interface ITicketRepository
     List<Ticket> GetByUser(Guid userId);
 
     List<Ticket> GetBySchedule(Guid scheduleId);
+
+    Ticket GetById(Guid id);
 }

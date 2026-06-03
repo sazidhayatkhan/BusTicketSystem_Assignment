@@ -61,14 +61,30 @@ This project demonstrates **OOP principles, SOLID design, layered architecture, 
 
 ---
 
+## Invoice Management
+
+- Automatically generated when a ticket is booked
+- Invoice includes:
+  - Invoice ID
+  - Ticket ID
+  - User information
+  - Schedule (route + time)
+  - Seat number
+  - Ticket price
+  - Generated date
+- View all invoices
+- Acts as the billing record for each booking
+
+---
+
 # Architecture
 
 The project follows a **layered architecture**:
 
-- **UI Layer** → Console interaction (UserUI, BusUI, ScheduleUI, TicketUI)
-- **Service Layer** → Business logic (UserService, BusService, ScheduleService, TicketService)
+- **UI Layer** → Console interaction (UserUI, BusUI, ScheduleUI, TicketUI, InvoiceUI)
+- **Service Layer** → Business logic (UserService, BusService, ScheduleService, TicketService, InvoiceService)
 - **Repository Layer** → In-memory data storage
-- **Domain Layer** → Core models (User, Bus, Schedule, Seat, Ticket)
+- **Domain Layer** → Core models (User, Bus, Schedule, Seat, Ticket, Invoice)
 
 ---
 
@@ -83,30 +99,35 @@ BusTicketSystem/
 │   ├── Schedule.cs
 │   ├── Seat.cs
 │   ├── Ticket.cs
+│   ├── Invoice.cs
 │
 ├── Services/
 │   ├── UserService.cs
 │   ├── BusService.cs
 │   ├── ScheduleService.cs
 │   ├── TicketService.cs
+│   ├── InvoiceService.cs
 │
 ├── Repositories/
 │   ├── UserRepository.cs
 │   ├── BusRepository.cs
 │   ├── ScheduleRepository.cs
 │   ├── TicketRepository.cs
+│   ├── InvoiceRepository.cs
 │
 ├── Interfaces/
 │   ├── IUserRepository.cs
 │   ├── IBusRepository.cs
 │   ├── IScheduleRepository.cs
 │   ├── ITicketRepository.cs
+│   ├── IInvoiceRepository.cs
 │
 ├── UI/
 │   ├── UserUI.cs
 │   ├── BusUI.cs
 │   ├── ScheduleUI.cs
 │   ├── TicketUI.cs
+│   ├── InvoiceUI.cs
 │
 ├── Enums/
 │   ├── BusType.cs
@@ -140,5 +161,6 @@ dotnet run
 8. Book Ticket
 9. View User Tickets
 10. View Schedule Tickets
-11. Exit
+11. View Invoices
+12. Exit
 ```
