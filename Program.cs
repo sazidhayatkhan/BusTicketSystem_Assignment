@@ -16,6 +16,12 @@ ScheduleService scheduleService = new ScheduleService(
     busRepository
 );
 
+BusTicketSystem.DemoData.Seed(
+    userService,
+    busService,
+    scheduleService
+);
+
 var userUI = new UserUI(userRepository, userService);
 var busUI = new BusUI(busService);
 var scheduleUI = new ScheduleUI(scheduleService, busService);
