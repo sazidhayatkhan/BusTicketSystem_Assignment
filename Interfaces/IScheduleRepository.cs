@@ -9,4 +9,6 @@ public interface IScheduleRepository
     List<Schedule> GetAll();
 
     List<Schedule> GetByBusId(Guid busId);
+
+    Schedule GetById(Guid scheduleId);
 }

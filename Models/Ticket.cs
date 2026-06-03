@@ -4,21 +4,25 @@ public class Ticket
 {
     public Guid TicketId { get; private set; }
 
-    public string Route { get; private set; }
+    public Guid UserId { get; private set; }
 
-    public decimal Fare { get; private set; }
+    public Guid ScheduleId { get; private set; }
 
-    public DateTime BookingTime { get; private set; }
+    public int SeatNumber { get; private set; }
+
+    public DateTime BookingDate { get; private set; }
 
     public Ticket(
-        string route,
-        decimal fare)
+        Guid userId,
+        Guid scheduleId,
+        int seatNumber)
     {
         TicketId = Guid.NewGuid();
 
-        Route = route;
-        Fare = fare;
+        UserId = userId;
+        ScheduleId = scheduleId;
+        SeatNumber = seatNumber;
 
-        BookingTime = DateTime.Now;
+        BookingDate = DateTime.Now;
     }
 }

@@ -14,6 +14,13 @@ public class Schedule
 
     public decimal TicketPrice { get; private set; }
 
+    public List<Ticket> Tickets { get; private set; } = new();
+
+    public void AddTicket(Ticket ticket)
+    {
+        Tickets.Add(ticket);
+    }
+
     public Schedule(
         Guid busId,
         string departureCity,

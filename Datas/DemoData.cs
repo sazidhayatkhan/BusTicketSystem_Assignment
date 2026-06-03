@@ -8,16 +8,17 @@ public static class DemoData
     public static void Seed(
         UserService userService,
         BusService busService,
-        ScheduleService scheduleService)
+        ScheduleService scheduleService,
+        TicketService ticketService)
     {
         // Users
-        userService.RegisterUser(
+        var user1 = userService.RegisterUser(
             "Sazid Hasan",
             "01712345678",
             "sazid@gmail.com"
         );
 
-        userService.RegisterUser(
+        var user2 = userService.RegisterUser(
             "John Doe",
             "01812345678",
             "john@gmail.com"
@@ -35,7 +36,7 @@ public static class DemoData
         );
 
         // Schedules
-        scheduleService.CreateSchedule(
+        var schedule1 = scheduleService.CreateSchedule(
             bus1.BusId,
             "Dhaka",
             "Chattogram",
@@ -43,12 +44,31 @@ public static class DemoData
             1200
         );
 
-        scheduleService.CreateSchedule(
+        var schedule2 = scheduleService.CreateSchedule(
             bus2.BusId,
             "Dhaka",
             "Cox's Bazar",
             new DateTime(2026, 6, 16, 22, 0, 0),
             1800
+        );
+
+        // Tickets
+        ticketService.BookTicket(
+            user1.UserId,
+            schedule1.ScheduleId,
+            1
+        );
+
+        ticketService.BookTicket(
+            user1.UserId,
+            schedule1.ScheduleId,
+            2
+        );
+
+        ticketService.BookTicket(
+            user2.UserId,
+            schedule2.ScheduleId,
+            5
         );
     }
 }
