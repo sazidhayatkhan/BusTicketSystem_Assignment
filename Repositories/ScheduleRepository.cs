@@ -23,4 +23,10 @@ public class ScheduleRepository : IScheduleRepository
             .Where(s => s.BusId == busId)
             .ToList();
     }
+
+    public Schedule GetById(Guid scheduleId)
+    {
+        return _schedules.FirstOrDefault(s => s.ScheduleId == scheduleId)
+            ?? throw new Exception("Schedule not found");
+    }
 }
